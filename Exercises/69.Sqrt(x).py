@@ -1,10 +1,9 @@
-class Solution(object):
+class Solution():
     def mySqrt(self, x):
-
         left = 0
         right = x
         while left <= right:
-            mid = (left + right)
+            mid = (left + right) // 2
             if mid * mid < x:
                 left = mid + 1
             elif mid * mid > x:
@@ -12,3 +11,6 @@ class Solution(object):
             else:
                 return mid
         return right
+
+
+print(Solution.mySqrt(Solution,9))
