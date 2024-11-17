@@ -1,17 +1,15 @@
 class Solution():
-    def longestPalindrome(self,s):
-
+    def longestPalindrome(self, s):
         longest = ""
-        longestInside = ""
-        for i in range(len(s)):  # 5
+        for i in range(len(s)):
             for j in range(len(s) - 1, i, -1):
-                if s[i] == s[j]:  # i = 1 j = 2
-                    longestInside = s[j:i - 1:-1]
-                    print(j)
-                    print(i)
-            if len(longestInside) > len(longest):
-                longest = longestInside
+                if s[i] == s[j]:
+                    forward = s[i:j + 1]
+                    reverse = s[j:i - 1:-1] if i > 0 else s[j::-1]
+                    if forward == reverse:
+                        if len(forward) > len(longest):
+                            longest = forward
 
-        if longest == "":
-            return s[0]
-        return longest
+        return longest if longest else s[0]
+
+print(Solution.longestPalindrome(Solution,"abaa"))
