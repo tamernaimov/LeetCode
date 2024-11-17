@@ -13,5 +13,5 @@ def isPerfectSquare(num:int):
             return True
     return False
 
-print(isPerfectSquare(7))
+print(isPerfectSquare(15))
 print()
