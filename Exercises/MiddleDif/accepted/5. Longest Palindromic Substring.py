@@ -12,4 +12,4 @@ class Solution():
 
         return longest if longest else s[0]
 
-print(Solution.longestPalindrome(Solution,"abaa"))
+print(Solution.longestPalindrome(Solution,"abfaa"))
