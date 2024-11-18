@@ -14,4 +14,4 @@ def moveZeroes(nums):
         anotherList.append(0)
     nums[:] = anotherList  # This modifies the original `nums` list in-place
     return nums
-print(moveZeroes([2,1]))
+print(moveZeroes([0,3,4,1,0]))
