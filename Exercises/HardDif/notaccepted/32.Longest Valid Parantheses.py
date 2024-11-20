@@ -1,54 +1,48 @@
-
-
 def longestValidParentheses(s):
     sList = list(s)
+    print(s)
     longestPar = 0
     counter = 0
-    theTruth = False
-    theTruth3 = True
-    while theTruth3:
-        if (len(sList) == 2 and sList[0] + sList[1] == "((" or
-            len(sList) == 2 and sList[0] + sList[1] == ")(" or
-            len(sList) == 2 and sList[0] + sList[1] == "))"):
-            if counter > longestPar:
-                longestPar = counter
-            break
+
+    while len(sList) > 1:
+        compCheck = False
         i = 0
 
-        if sList[i] + sList[i+1] == "()":
+        if len(sList) == 2:
+            if sList[0] + sList[1] == "()":
+                counter += 2
+                del sList[1]
+                del sList[0]
+            elif sList[0] + sList[1] == ")(" or sList[0] + sList[1] == "((" or sList[0] + sList[1] == "))":
+                del sList[1]
+                del sList[0]
+
+        elif sList[i] + sList[i+1] == "()":
+            counter +=2
             del sList[i+1]
             del sList[i]
-            print(sList)
-            counter += 2
-            if len(sList) < 2:
-                if counter > longestPar:
-                    longestPar = counter
-                break
 
         else:
-            currentIndex = i
-            while i < len(sList)-2:
-                if sList[i+1] + sList[i+2] != "()" and sList[currentIndex] + sList[i+2] == "()":
+            while i < len(sList)-2: #)()
+                if sList[0] + sList[i+2] == "()" and sList[i+1] + sList[i+2] != "()":
                     del sList[i+2]
-                    del sList[currentIndex]
+                    del sList[0]
                     counter += 2
-                    theTruth = True
+                    compCheck = True
                     break
                 i += 1
-            i = 0
-            if theTruth:
-                theTruth = False
-                continue
-            #ako ne sme ospeli da namerim:
-            if counter > longestPar:
-                longestPar = counter
-            i += 1
-            counter = 0
 
-        if i == len(s)-1:
-            break
-        if len(sList) < 2:
-            theTruth3 = False
+            if not compCheck:
+                print("deleted!")
+                del sList[0]
+                counter = 0
+
+        print(sList)
+        print(counter)
+        if counter > longestPar:
+            longestPar = counter
     return longestPar
 
-print(longestValidParentheses("))(("))
+print(longestValidParentheses
+      ("()(()))()()()()))()()()()()()"))
+
