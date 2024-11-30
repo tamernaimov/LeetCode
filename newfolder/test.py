@@ -1,3 +1,3 @@
-word = "tamer"
-print(word[4:3:-1])
+
+listcheck = [5,1,2]
 
