@@ -1,23 +1,29 @@
 def longestConsecutive(nums):
-    if not nums:
+    if len(nums) == 0:
         return 0
     nums.sort()
-    nums = list(dict.fromkeys(nums))
-    longestCounter = 0
+    j = 0
+    for i in range(1, len(nums)):
+        if nums[j] != nums[i]:
+            j += 1
+            nums[j] = nums[i]
+    i = 0
+    max_counter = 0
     counter = 0
     print(nums)
-    for i in range(len(nums)-1):
-
-        if nums[i] == nums[i+1]-1 or nums[i] == nums[i+1]:
-            if nums[i] == nums[i+1]:
-                continue
-            else:
-                counter +=1
+    while i < len(nums)-1:
+        if nums[i]+1 == nums[i+1]:
+            counter+=1
         else:
+            if counter > max_counter:
+                max_counter = counter
             counter = 0
-        if counter > longestCounter:
-            longestCounter = counter
+        i+=1
+        if i == len(nums)-1:
+            if counter > max_counter:
+                max_counter = counter
 
-    return longestCounter + 1
+    return max_counter +1
+
 
 print(longestConsecutive([0,-1]))

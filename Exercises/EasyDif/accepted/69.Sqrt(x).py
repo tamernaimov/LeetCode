@@ -13,4 +13,4 @@ class Solution():
         return right
 
 
-print(Solution.mySqrt(Solution,9))
+print(Solution.mySqrt(Solution,16))
