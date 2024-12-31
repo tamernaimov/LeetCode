@@ -8,3 +8,8 @@ print(hashmap.get(3)) #with get func
 
 if 6 in hashmap:
     print(hashmap[6]) #no func
+
+
+string = "remajkm"
+
+print(string[4:0:-1])
