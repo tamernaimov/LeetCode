@@ -13,3 +13,14 @@ if 6 in hashmap:
 string = "remajkm"
 
 print(string[4:0:-1])
+
+
+print(8**8)
+arr = [1,4,5]
+print(arr[0:2])
+
+print()
+nums = [3,1,2,4]
+nums.insert(0,4)
+
+print(nums)

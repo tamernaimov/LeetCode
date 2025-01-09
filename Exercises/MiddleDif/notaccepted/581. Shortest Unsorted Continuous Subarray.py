@@ -1,35 +1,20 @@
-
-
 def findUnsortedSubarray(nums):
-    if len(nums) == 1:
-        return nums[0]
-
-    nums2 =nums[::1]
-    nums.sort()
-    sortedNums = nums[::1]
-
-    if nums2 == sortedNums:
+    n = len(nums)
+    
+    left, right = -1, -1
+    
+    for i in range(n - 1):
+        for j in range(n - 1 - i):
+            if nums[j] > nums[j + 1]:
+                nums[j], nums[j + 1] = nums[j + 1], nums[j]
+                if left == -1:
+                    left = j
+                right = j + 1
+    
+    if left == -1:
         return 0
+    else:
+        return right - left + 1
 
-
-    longest = 0
-
-    for i in range(len(nums)):
-        counter = 0
-        l = i
-        r = len(nums)
-        while l < r:
-            sn = nums2[l:r]
-            print(sn)
-            if sn == sortedNums:
-                counter = len(sn)
-                l += 1
-                continue
-            l+=1
-        if counter > longest:
-            longest = counter
-
-    return longest
-
-
-print(findUnsortedSubarray([2,6,4,8,10,9,15]))
+nums = [2,4,6,8,10,9,15,10,5]
+print(findUnsortedSubarray(nums))  # Output: 5
