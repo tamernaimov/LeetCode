@@ -1,0 +1,14 @@
+def singleNumber(nums):
+
+    hashmap = {}
+    res = []
+    for num in nums:
+        hashmap[num] = hashmap.get(num, 0) + 1
+
+    print(hashmap)
+    for idx,(key,value) in enumerate(hashmap.items()):
+        if value == 1:
+            res.append(key)
+    return res
+
+print(singleNumber([1,2,1,3,2,5]))

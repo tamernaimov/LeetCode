@@ -1,17 +1,16 @@
 import itertools
 
-def findSubstring(s,words):
+def findSubstring(s, words):
+    permutations = itertools.permutations(words)
+    combined_words = [''.join(p) for p in permutations]
+    words = list(set(combined_words))
 
-
-    answers = []
     print(words)
-    for i in range(len(words)):
-        for j in range(len(s)-len(words)):
-            if words[i] == s[j:len(words[i])+j]:
-                answers.append(j) #problem here
-                print("asd")
-
-    answers = list(dict.fromkeys(answers))
+    answers = []
+    for i in range(len(s)):
+        for j in range (len(words)):
+            if words[j] == s[i:i+len(words[j])]:
+                answers.append(i)
     return answers
 
-print(findSubstring("asdasdasd",["asd"]))
+print(findSubstring("foobarfoobar",["foo","bar"]))
