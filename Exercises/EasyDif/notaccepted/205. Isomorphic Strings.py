@@ -1,10 +1,17 @@
 def isIsomorphic(s,t):
-    for i in range(len(s)):
-        s = s.replace(s[i],t[i])
-        print(s)
-    if s ==t:
-        return True
-    else:
-        return False
+    list1 = []
+    list2 = []
+    for i in range (len(s)):
+        if s[i] not in list1:
+            list1.append(s[i])
 
-isIsomorphic("badc","baba")
+    for i in range (len(t)):
+        if t[i] not in list2:
+            list2.append(t[i])
+
+
+    if len(list1) == len(list2):
+        return True
+    return False
+
+print(isIsomorphic("egg","add"))

@@ -1,12 +1,9 @@
 
 
 def isPowerOfTwo(n):
-    if n == 1:
-        return True
-    for i in range (n):
-        if i*i == n:
-            return True
-    return False
+    if n <= 0:
+        return False
+    return (n & (n - 1)) == 0
 
 
 def isPowerOfTwo2(n):
@@ -21,4 +18,4 @@ def isPowerOfTwo2(n):
         else:
             return True
     return False
-print(isPowerOfTwo2(8))
+print(isPowerOfTwo(8))
