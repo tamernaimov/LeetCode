@@ -1,18 +1,12 @@
 def countPrimes(n):
+
     counter = 0
-    for i in range(n+1):
-        if i ==2:
-            counter +=1
-            continue
-        if i ==3:
-            counter +=1
-            continue
-        if i == 1:
-            continue
-        if i % 2 !=0 and i % 3 !=0:
-            print(i)
-            counter+=1
+
+    for i in range (n):
+        for j in range (2,i):
+            if i % j == 0:
+                counter+=1
+                break
 
     return counter
-
 print(countPrimes(10))

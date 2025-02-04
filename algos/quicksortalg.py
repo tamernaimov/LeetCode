@@ -1,28 +1,28 @@
-def partition(array, low, high):
-    pivot = array[high]
+def partition(nums, low, high):
+    pivot = nums[high]
 
     i = low - 1
 
     for j in range(low, high):
-        if array[j] <= pivot:
+        if nums[j] <= pivot:
 
             i = i + 1
 
-            (array[i], array[j]) = (array[j], array[i])
+            (nums[i], nums[j]) = (nums[j], nums[i])
 
-    (array[i + 1], array[high]) = (array[high], array[i + 1])
+    (nums[i + 1], nums[high]) = (nums[high], nums[i + 1])
 
     return i + 1
 
 
-def quickSort(array, low, high):
+def quickSort(nums, low, high):
     if low < high:
 
-        pi = partition(array, low, high)
+        pi = partition(nums, low, high)
 
-        quickSort(array, low, pi - 1)
+        quickSort(nums, low, pi - 1)
 
-        quickSort(array, pi + 1, high)
+        quickSort(nums, pi + 1, high)
 
 
 data = [1, 7, 4, 1, 10, 9, -2]
